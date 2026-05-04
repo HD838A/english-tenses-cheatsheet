@@ -6,445 +6,750 @@
   <title>英语时态速查表</title>
   <style>
     :root {
-      --bg: #f5f7fb;
-      --card: rgba(255,255,255,0.9);
+      --bg: #f4f7fb;
+      --card: rgba(255, 255, 255, 0.92);
       --text: #1f2937;
-      --muted: #6b7280;
-      --accent: #7c3aed;
-      --accent-2: #0ea5e9;
-      --border: rgba(124,58,237,0.12);
-      --shadow: 0 18px 40px rgba(31, 41, 55, 0.08);
+      --muted: #667085;
+      --line: rgba(99, 102, 241, 0.14);
+      --shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+      --present: #0ea5e9;
+      --past: #8b5cf6;
+      --future: #f97316;
+      --accent: #1d4ed8;
+      --soft: rgba(59, 130, 246, 0.08);
     }
+
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-      background:
-        radial-gradient(circle at top right, rgba(14,165,233,0.14), transparent 24%),
-        radial-gradient(circle at top left, rgba(124,58,237,0.12), transparent 26%),
-        var(--bg);
+      font-family: "Inter", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", sans-serif;
       color: var(--text);
       line-height: 1.65;
+      background:
+        radial-gradient(circle at top left, rgba(14,165,233,0.12), transparent 26%),
+        radial-gradient(circle at top right, rgba(139,92,246,0.12), transparent 26%),
+        var(--bg);
     }
+
     .wrap {
-      width: min(1180px, calc(100% - 32px));
+      width: min(1200px, calc(100% - 28px));
       margin: 0 auto;
-      padding: 32px 0 56px;
+      padding: 28px 0 56px;
     }
+
     .hero {
-      background: linear-gradient(135deg, #1d4ed8, #7c3aed 58%, #0ea5e9);
+      background: linear-gradient(135deg, #0f172a, #1d4ed8 45%, #7c3aed 78%, #f97316);
       color: #fff;
-      border-radius: 28px;
-      padding: 30px 24px;
+      border-radius: 30px;
+      padding: 32px 24px;
       box-shadow: var(--shadow);
-      margin-bottom: 24px;
+      margin-bottom: 22px;
     }
+
     .hero h1 {
       margin: 0 0 12px;
-      font-size: clamp(2rem, 4vw, 3.3rem);
-      line-height: 1.1;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.08;
     }
+
     .hero p {
       margin: 0;
-      max-width: 760px;
+      max-width: 860px;
       color: rgba(255,255,255,0.92);
       font-size: 1rem;
     }
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 18px;
-    }
-    .chip {
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.16);
-      font-size: 0.92rem;
-      backdrop-filter: blur(6px);
-    }
-    .grid {
+
+    .chips,
+    .nav,
+    .tense-grid,
+    .example-list,
+    .mini-list,
+    .summary-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 18px;
-      margin-top: 24px;
-    }
-    .card {
-      background: var(--card);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 20px;
-      box-shadow: var(--shadow);
-    }
-    .card h2 {
-      margin: 0 0 10px;
-      font-size: 1.2rem;
-      line-height: 1.35;
-    }
-    .accent {
-      color: var(--accent);
-      font-weight: 800;
-    }
-    .formula {
-      margin: 0 0 12px;
-      color: var(--accent-2);
-      font-weight: 800;
-      font-size: 0.98rem;
-    }
-    .hint {
-      margin: 0 0 14px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-    .examples {
-      display: grid;
-      gap: 10px;
-    }
-    .example {
-      background: rgba(124,58,237,0.05);
-      border-radius: 16px;
-      padding: 12px 14px;
-    }
-    .en {
-      margin: 0 0 4px;
-      font-weight: 650;
-    }
-    .zh {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.96rem;
-    }
-    .section-title {
-      margin: 0 0 8px;
-      font-size: 1.3rem;
-    }
-    .section-lead {
-      margin: 0 0 16px;
-      color: var(--muted);
-    }
-    .practical-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 12px;
     }
-    .mini-card {
-      background: rgba(255,255,255,0.72);
-      border: 1px solid rgba(124,58,237,0.1);
+
+    .chips {
+      grid-template-columns: repeat(auto-fit, minmax(180px, max-content));
+      margin-top: 18px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.14);
+      font-size: 0.94rem;
+      width: fit-content;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .overview {
+      padding: 18px;
+      margin-bottom: 20px;
+    }
+
+    .overview h2,
+    .era-block h2,
+    .summary h2 {
+      margin: 0 0 10px;
+      font-size: 1.28rem;
+    }
+
+    .overview p,
+    .summary p,
+    .era-note {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .nav {
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      margin-top: 16px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: inherit;
+      padding: 14px 16px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.7);
+      font-weight: 700;
+    }
+
+    .nav small {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .era-block {
+      padding: 20px;
+      margin-top: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .era-block::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 8px;
+      border-radius: 24px;
+    }
+
+    .era-block.present::before { background: linear-gradient(var(--present), #38bdf8); }
+    .era-block.past::before { background: linear-gradient(var(--past), #a78bfa); }
+    .era-block.future::before { background: linear-gradient(var(--future), #fb923c); }
+
+    .era-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+      padding-left: 10px;
+    }
+
+    .era-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 12px;
+      border-radius: 999px;
+      color: #fff;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .present .era-tag { background: var(--present); }
+    .past .era-tag { background: var(--past); }
+    .future .era-tag { background: var(--future); }
+
+    .tense-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .tense-card {
+      padding: 18px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(248,250,252,0.92));
+      border: 1px solid var(--line);
+    }
+
+    .tense-card h3 {
+      margin: 0;
+      font-size: 1.15rem;
+      line-height: 1.35;
+    }
+
+    .subtitle {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .mapping {
+      margin: 14px 0;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(59,130,246,0.08), rgba(139,92,246,0.08));
+      border: 1px solid rgba(99, 102, 241, 0.12);
+      font-size: 0.96rem;
+    }
+
+    .columns {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      align-items: start;
+    }
+
+    .lang-col {
+      background: rgba(255,255,255,0.74);
+      border: 1px solid rgba(99, 102, 241, 0.1);
       border-radius: 18px;
       padding: 14px;
+      min-height: 100%;
     }
-    .mini-card h3 {
+
+    .lang-col h4 {
       margin: 0 0 10px;
       font-size: 1rem;
     }
-    .compare-list {
-      display: grid;
-      gap: 10px;
-    }
-    .compare-item {
-      background: rgba(124,58,237,0.05);
-      border-radius: 16px;
-      padding: 12px 14px;
-    }
-    .compare-item p {
-      margin: 0;
-    }
-    .compare-item p + p {
-      margin-top: 6px;
-    }
-    .arrow {
-      color: var(--accent-2);
+
+    .label {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--accent);
+      font-size: 0.84rem;
       font-weight: 800;
-      margin: 0 6px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
     }
-    .tip-box {
+
+    .block + .block { margin-top: 10px; }
+    .block p { margin: 0; }
+
+    .example-list,
+    .mini-list,
+    .summary-grid {
+      margin-top: 10px;
+    }
+
+    .example,
+    .mini-item,
+    .summary-item {
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: var(--soft);
+    }
+
+    .mini-item strong,
+    .summary-item strong { color: var(--accent); }
+
+    .speaking {
       margin-top: 14px;
-      padding: 14px 16px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, rgba(14,165,233,0.09), rgba(124,58,237,0.08));
-      color: var(--text);
+      padding-top: 14px;
+      border-top: 1px dashed rgba(99, 102, 241, 0.18);
     }
-    .tip-box p {
-      margin: 0;
-    }
-    .tip-box p + p {
-      margin-top: 8px;
-    }
-    .mnemonics {
+
+    .speaking p,
+    .contrast p,
+    .summary-item p { margin: 0; }
+    .contrast p + p,
+    .summary-item p + p,
+    .speaking p + p { margin-top: 7px; }
+
+    .summary {
+      padding: 20px;
       margin-top: 24px;
-      background: linear-gradient(135deg, rgba(14,165,233,0.10), rgba(124,58,237,0.10));
     }
-    .mnemonics ol {
-      margin: 12px 0 0;
-      padding-left: 20px;
+
+    .summary-grid {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     }
-    .mnemonics li + li { margin-top: 10px; }
+
     footer {
+      margin-top: 24px;
       text-align: center;
       color: var(--muted);
       font-size: 0.92rem;
-      margin-top: 28px;
     }
+
+    @media (max-width: 980px) {
+      .tense-grid,
+      .columns {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 720px) {
-      .wrap { width: min(100% - 20px, 1180px); padding-top: 20px; }
-      .hero, .card { border-radius: 20px; }
-      .hero { padding: 22px 18px; }
-      .card { padding: 18px; }
+      .wrap { width: min(100% - 18px, 1200px); padding-top: 18px; }
+      .hero, .card, .tense-card { border-radius: 20px; }
+      .hero { padding: 24px 18px; }
+      .overview, .era-block, .summary, .tense-card { padding: 16px; }
+      .era-head { padding-left: 6px; }
     }
   </style>
 </head>
 <body>
   <div class="wrap">
     <section class="hero">
-      <h1>英语 12 大时态速查表</h1>
-      <p>一页看懂英文时态的时间感、结构和常见提示词。适合快速复习、口语纠错、写作自查。每个时态都配了中文关键词和完整中英双语例句。</p>
+      <h1>英语 12 大时态，不是死背公式，而是看懂中文怎么对应表达</h1>
+      <p>主线按 <strong>现在时 / 过去时 / 将来时</strong> 展开。每个时态都用“中文在左、英文在右”的并排方式，帮助你从中文时间感、语气、结果感，映射到英文时态，而不是只盯着动词变化。</p>
       <div class="chips">
-        <span class="chip">现在 / 过去 / 将来</span>
-        <span class="chip">一般 / 进行 / 完成 / 完成进行</span>
-        <span class="chip">结构 + 关键词 + 例句</span>
+        <span class="chip">左边：中文关键词 / 中文表达 / 中文例句</span>
+        <span class="chip">右边：English tense / structure / examples</span>
+        <span class="chip">每张卡都带“对应关系”提醒</span>
       </div>
     </section>
 
-    <main class="grid">
-      <section class="card">
-        <h2><span class="accent">1. 一般现在时</span></h2>
-        <p class="formula"><strong>结构：</strong> <span class="accent">主语 + 动词原形 / 动词三单</span></p>
-        <p class="hint"><strong>关键词：</strong>经常、总是、通常、每天、事实、习惯</p>
-        <div class="examples">
-          <div class="example"><p class="en">She walks to work every morning.</p><p class="zh">她每天早上走路去上班。</p></div>
-          <div class="example"><p class="en">Water boils at one hundred degrees Celsius.</p><p class="zh">水在一百摄氏度时沸腾。</p></div>
-        </div>
-      </section>
-
-      <section class="card">
-        <h2><span class="accent">2. 一般过去时</span></h2>
-        <p class="formula"><strong>结构：</strong> <span class="accent">主语 + 动词过去式</span></p>
-        <p class="hint"><strong>关键词：</strong>昨天、刚才、去年、以前、某个过去时间</p>
-        <div class="examples">
-          <div class="example"><p class="en">I met my best friend at a small café last night.</p><p class="zh">昨晚我在一家小咖啡馆见到了我最好的朋友。</p></div>
-          <div class="example"><p class="en">They finished the project before the deadline.</p><p class="zh">他们在截止日期之前完成了项目。</p></div>
-        </div>
-      </section>
-
-      <section class="card">
-        <h2><span class="accent">3. 一般将来时</span></h2>
-        <p class="formula"><strong>结构：</strong> <span class="accent">主语 + will + 动词原形</span></p>
-        <p class="hint"><strong>关键词：</strong>明天、以后、将会、打算、预测</p>
-        <div class="examples">
-          <div class="example"><p class="en">I will call you as soon as I arrive at the station.</p><p class="zh">我一到车站就会给你打电话。</p></div>
-          <div class="example"><p class="en">The weather will probably get colder next week.</p><p class="zh">下周天气可能会变得更冷。</p></div>
-        </div>
-      </section>
-
-      <section class="card">
-        <h2><span class="accent">4. 现在进行时</span></h2>
-        <p class="formula"><strong>结构：</strong> <span class="accent">主语 + am / is / are + doing</span></p>
-        <p class="hint"><strong>关键词：</strong>正在、此刻、现在、当前阶段</p>
-        <div class="examples">
-          <div class="example"><p class="en">We are discussing the new marketing plan right now.</p><p class="zh">我们现在正在讨论新的营销计划。</p></div>
-          <div class="example"><p class="en">He is staying with his aunt for a few weeks.</p><p class="zh">他这几周正住在他姑妈家。</p></div>
-        </div>
-      </section>
-
-      <section class="card">
-        <h2><span class="accent">5. 过去进行时</span></h2>
-        <p class="formula"><strong>结构：</strong> <span class="accent">主语 + was / were + doing</span></p>
-        <p class="hint"><strong>关键词：</strong>当时正在、那时、某一刻持续发生</p>
-        <div class="examples">
-          <div class="example"><p class="en">I was reading in bed when the lights suddenly went out.</p><p class="zh">灯突然熄灭时，我正躺在床上看书。</p></div>
-          <div class="example"><p class="en">They were playing basketball at five o'clock yesterday afternoon.</p><p class="zh">昨天下午五点他们正在打篮球。</p></div>
-        </div>
-      </section>
-
-      <section class="card">
-        <h2><span class="accent">6. 将来进行时</span></h2>
-        <p class="formula"><strong>结构：</strong> <span class="accent">主语 + will be + doing</span></p>
-        <p class="hint"><strong>关键词：</strong>将正在、某个将来时刻持续发生</p>
-        <div class="examples">
-          <div class="example"><p class="en">This time tomorrow, I will be flying over the Pacific Ocean.</p><p class="zh">明天这个时候，我将正在太平洋上空飞行。</p></div>
-          <div class="example"><p class="en">She will be working late tonight, so do not wait for dinner.</p><p class="zh">她今晚将会工作到很晚，所以不用等她吃晚饭。</p></div>
-        </div>
-      </section>
-
-      <section class="card">
-        <h2><span class="accent">7. 现在完成时</span></h2>
-        <p class="formula"><strong>结构：</strong> <span class="accent">主语 + have / has + 过去分词</span></p>
-        <p class="hint"><strong>关键词：</strong>已经、还没、刚刚、至今、经历、结果影响现在</p>
-        <div class="examples">
-          <div class="example"><p class="en">I have visited Beijing three times in my life.</p><p class="zh">我这一生中去过北京三次。</p></div>
-          <div class="example"><p class="en">She has already sent the final report to the client.</p><p class="zh">她已经把最终报告发给客户了。</p></div>
-        </div>
-      </section>
-
-      <section class="card">
-        <h2><span class="accent">8. 过去完成时</span></h2>
-        <p class="formula"><strong>结构：</strong> <span class="accent">主语 + had + 过去分词</span></p>
-        <p class="hint"><strong>关键词：</strong>过去的过去、在……之前已经</p>
-        <div class="examples">
-          <div class="example"><p class="en">By the time we arrived, the movie had already started.</p><p class="zh">等我们到的时候，电影已经开始了。</p></div>
-          <div class="example"><p class="en">He had never seen snow before he moved to Canada.</p><p class="zh">在搬到加拿大之前，他从未见过雪。</p></div>
-        </div>
-      </section>
-
-      <section class="card">
-        <h2><span class="accent">9. 将来完成时</span></h2>
-        <p class="formula"><strong>结构：</strong> <span class="accent">主语 + will have + 过去分词</span></p>
-        <p class="hint"><strong>关键词：</strong>到……为止将已经完成</p>
-        <div class="examples">
-          <div class="example"><p class="en">By next Friday, we will have completed the first round of testing.</p><p class="zh">到下周五为止，我们将已经完成第一轮测试。</p></div>
-          <div class="example"><p class="en">She will have left for the airport before sunrise.</p><p class="zh">天亮前她就将已经出发去机场了。</p></div>
-        </div>
-      </section>
-
-      <section class="card">
-        <h2><span class="accent">10. 现在完成进行时</span></h2>
-        <p class="formula"><strong>结构：</strong> <span class="accent">主语 + have / has been + doing</span></p>
-        <p class="hint"><strong>关键词：</strong>一直在、持续到现在、最近反复发生</p>
-        <div class="examples">
-          <div class="example"><p class="en">I have been learning English for six years.</p><p class="zh">我已经学英语六年了。</p></div>
-          <div class="example"><p class="en">It has been raining all afternoon, and the streets are still wet.</p><p class="zh">整个下午一直在下雨，而且街道现在还湿着。</p></div>
-        </div>
-      </section>
-
-      <section class="card">
-        <h2><span class="accent">11. 过去完成进行时</span></h2>
-        <p class="formula"><strong>结构：</strong> <span class="accent">主语 + had been + doing</span></p>
-        <p class="hint"><strong>关键词：</strong>过去某时之前一直在、强调持续过程</p>
-        <div class="examples">
-          <div class="example"><p class="en">She had been waiting for over an hour before the doctor finally arrived.</p><p class="zh">医生终于到来之前，她已经等了一个多小时。</p></div>
-          <div class="example"><p class="en">They had been working on the machine all night, so they were exhausted.</p><p class="zh">他们整夜都在修那台机器，所以累坏了。</p></div>
-        </div>
-      </section>
-
-      <section class="card">
-        <h2><span class="accent">12. 将来完成进行时</span></h2>
-        <p class="formula"><strong>结构：</strong> <span class="accent">主语 + will have been + doing</span></p>
-        <p class="hint"><strong>关键词：</strong>到将来某时为止一直在、强调持续多久</p>
-        <div class="examples">
-          <div class="example"><p class="en">By the end of this year, I will have been teaching here for a decade.</p><p class="zh">到今年年底，我在这里教书就满十年了。</p></div>
-          <div class="example"><p class="en">Next month, they will have been living abroad for five years.</p><p class="zh">到下个月，他们在国外生活就满五年了。</p></div>
-        </div>
-      </section>
-    </main>
-
-    <section class="card">
-      <h2 class="section-title"><span class="accent">现在 → 过去：常用变形速记</span></h2>
-      <p class="section-lead">很多口语句子不是单纯把动词变过去式，而是整句的“时间感”一起往后退一格。先抓住这些最高频变化，会非常实用。</p>
-      <div class="practical-grid">
-        <div class="mini-card">
-          <h3>助动词 / 情态动词</h3>
-          <div class="compare-list">
-            <div class="compare-item"><p><strong>don't</strong> <span class="arrow">→</span> <strong>didn't</strong></p><p class="zh">不 / 没有</p></div>
-            <div class="compare-item"><p><strong>doesn't</strong> <span class="arrow">→</span> <strong>didn't</strong></p><p class="zh">不 / 没有</p></div>
-            <div class="compare-item"><p><strong>can</strong> <span class="arrow">→</span> <strong>could</strong></p><p class="zh">能 / 当时能</p></div>
-            <div class="compare-item"><p><strong>can't</strong> <span class="arrow">→</span> <strong>couldn't</strong></p><p class="zh">不能 / 没能 / 没做到</p></div>
-            <div class="compare-item"><p><strong>will</strong> <span class="arrow">→</span> <strong>would</strong></p><p class="zh">会 / 本来会</p></div>
-            <div class="compare-item"><p><strong>won't</strong> <span class="arrow">→</span> <strong>wouldn't</strong></p><p class="zh">不会 / 不肯</p></div>
-          </div>
-        </div>
-        <div class="mini-card">
-          <h3>最常见实义动词</h3>
-          <div class="compare-list">
-            <div class="compare-item"><p><strong>do</strong> <span class="arrow">→</span> <strong>did</strong></p><p class="zh">做 / 做了</p></div>
-            <div class="compare-item"><p><strong>go</strong> <span class="arrow">→</span> <strong>went</strong></p><p class="zh">去 / 去了</p></div>
-            <div class="compare-item"><p><strong>come</strong> <span class="arrow">→</span> <strong>came</strong></p><p class="zh">来 / 来了</p></div>
-            <div class="compare-item"><p><strong>see</strong> <span class="arrow">→</span> <strong>saw</strong></p><p class="zh">看见 / 看到了</p></div>
-            <div class="compare-item"><p><strong>say</strong> <span class="arrow">→</span> <strong>said</strong></p><p class="zh">说 / 说了</p></div>
-            <div class="compare-item"><p><strong>have</strong> <span class="arrow">→</span> <strong>had</strong></p><p class="zh">有 / 有过 / 当时有</p></div>
-          </div>
-        </div>
-      </div>
-      <div class="tip-box">
-        <p><strong class="accent">一眼判断：</strong>如果你在说“刚才、那次、以前、当时”，往往就该考虑过去形式，而不是现在形式。</p>
+    <section class="card overview">
+      <h2>阅读顺序建议</h2>
+      <p>先判断中文是在说 <strong>现在、过去、还是将来</strong>，再判断是在说 <strong>常态 / 正在发生 / 已经完成 / 已经持续了一段时间</strong>。下面的 12 张卡片就是按这个顺序排的。</p>
+      <div class="nav">
+        <a href="#present">现在时区块<small>现在的习惯、此刻、已经、一直到现在</small></a>
+        <a href="#past">过去时区块<small>过去那次、当时正在、过去之前已经、过去前一直在</small></a>
+        <a href="#future">将来时区块<small>将会、到时正在、到时已完成、到时已持续多久</small></a>
       </div>
     </section>
 
-    <section class="card">
-      <h2 class="section-title"><span class="accent">意思变化对照</span></h2>
-      <p class="section-lead">像 <strong>I think → I thought</strong> 一样，很多句子一变成过去时，中文意思也会自然变成“当时 / 之前 / 没料到”。</p>
-      <div class="compare-list">
-        <div class="compare-item">
-          <p class="en">I don't know. <span class="arrow">→</span> I didn't know.</p>
-          <p class="zh">我不知道。→ 我之前不知道 / 我当时不知道 / 我没料到。</p>
+    <section class="card era-block present" id="present">
+      <div class="era-head">
+        <div>
+          <span class="era-tag">现在时 · Present</span>
+          <h2>现在：说常态、此刻、当前结果、以及持续到现在的状态</h2>
         </div>
-        <div class="compare-item">
-          <p class="en">I can't do it. <span class="arrow">→</span> I couldn't do it.</p>
-          <p class="zh">我做不到。→ 我没做到 / 我当时做不到。</p>
+        <p class="era-note">中文里常见“平时、现在、已经、一直”这些感觉，通常先从现在时体系里找。</p>
+      </div>
+      <div class="tense-grid">
+        <article class="tense-card">
+          <h3>1. 一般现在时 · Simple Present</h3>
+          <p class="subtitle">常态、习惯、事实、说话当下的立场</p>
+          <div class="mapping"><strong>对应关系：</strong>中文常说“经常、一般、通常、我不……、我懂/我知道”，英文常用一般现在时来表达稳定事实或当前判断。</div>
+          <div class="columns">
+            <div class="lang-col">
+              <h4>中文表达</h4>
+              <div class="block"><span class="label">语法点</span><p>一般现在时</p></div>
+              <div class="block"><span class="label">中文关键词</span><p>经常、通常、总是、每天、事实、习惯、现在就是这样</p></div>
+              <div class="block"><span class="label">中文怎么说</span><p>用来表达平时如此、客观事实、个人态度，中文往往不一定显式说“现在”，但时间感是“长期成立”。</p></div>
+              <div class="example-list">
+                <div class="example">她每天早上走路去上班。</div>
+                <div class="example">水在一百摄氏度时沸腾。</div>
+                <div class="example">我不知道。</div>
+              </div>
+            </div>
+            <div class="lang-col">
+              <h4>English expression</h4>
+              <div class="block"><span class="label">Structure</span><p>Subject + base verb / third-person singular</p></div>
+              <div class="block"><span class="label">Examples</span></div>
+              <div class="example-list">
+                <div class="example">She walks to work every morning.</div>
+                <div class="example">Water boils at one hundred degrees Celsius.</div>
+                <div class="example">I don't know.</div>
+              </div>
+            </div>
+          </div>
+          <div class="speaking">
+            <p><strong>常用变形：</strong> I know → I knew；I don't know → I didn't know</p>
+            <p><strong>口语句型：</strong> I usually..., I don't..., She always...</p>
+          </div>
+        </article>
+
+        <article class="tense-card">
+          <h3>2. 现在进行时 · Present Continuous</h3>
+          <p class="subtitle">此刻正在发生，或这一阶段正在持续</p>
+          <div class="mapping"><strong>对应关系：</strong>中文里出现“正在、这会儿、最近这段时间都在……”时，英文更像是在画一个正在展开的画面。</div>
+          <div class="columns">
+            <div class="lang-col">
+              <h4>中文表达</h4>
+              <div class="block"><span class="label">语法点</span><p>现在进行时</p></div>
+              <div class="block"><span class="label">中文关键词</span><p>正在、现在、此刻、目前、这阵子</p></div>
+              <div class="block"><span class="label">中文怎么说</span><p>强调动作正在进行，不是平时总这样，而是眼下或当前阶段正在发生。</p></div>
+              <div class="example-list">
+                <div class="example">我们现在正在讨论新的营销计划。</div>
+                <div class="example">他这几周正住在他姑妈家。</div>
+              </div>
+            </div>
+            <div class="lang-col">
+              <h4>English expression</h4>
+              <div class="block"><span class="label">Structure</span><p>Subject + am / is / are + doing</p></div>
+              <div class="example-list">
+                <div class="example">We are discussing the new marketing plan right now.</div>
+                <div class="example">He is staying with his aunt for a few weeks.</div>
+              </div>
+            </div>
+          </div>
+          <div class="speaking">
+            <p><strong>对比提醒：</strong> I work here. = 我在这里上班（常态） / I am working here this month. = 我这个月在这里工作（阶段性）</p>
+            <p><strong>口语句型：</strong> I'm doing..., We're working on..., She's staying...</p>
+          </div>
+        </article>
+
+        <article class="tense-card">
+          <h3>3. 现在完成时 · Present Perfect</h3>
+          <p class="subtitle">已经发生，并且结果和现在有关</p>
+          <div class="mapping"><strong>对应关系：</strong>中文常见“已经、刚刚、还没、至今、去过、做完了”，重点不是过去哪一刻，而是“现在看结果”。</div>
+          <div class="columns">
+            <div class="lang-col">
+              <h4>中文表达</h4>
+              <div class="block"><span class="label">语法点</span><p>现在完成时</p></div>
+              <div class="block"><span class="label">中文关键词</span><p>已经、刚刚、还没、至今、经历过、结果还在</p></div>
+              <div class="block"><span class="label">中文怎么说</span><p>强调“事情已经发生了”，而且这个结果、经验或影响对现在仍然重要。</p></div>
+              <div class="example-list">
+                <div class="example">我这一生中去过北京三次。</div>
+                <div class="example">她已经把最终报告发给客户了。</div>
+                <div class="example">我已经吃过了。</div>
+              </div>
+            </div>
+            <div class="lang-col">
+              <h4>English expression</h4>
+              <div class="block"><span class="label">Structure</span><p>Subject + have / has + past participle</p></div>
+              <div class="example-list">
+                <div class="example">I have visited Beijing three times in my life.</div>
+                <div class="example">She has already sent the final report to the client.</div>
+                <div class="example">I have already eaten.</div>
+              </div>
+            </div>
+          </div>
+          <div class="speaking">
+            <p><strong>对比提醒：</strong> I ate. 更像“我吃了（过去那次）”；I have eaten. 更像“我已经吃过了，所以现在不饿/不用再安排我吃”。</p>
+            <p><strong>口语句型：</strong> I've already..., I've never..., Have you ever...?</p>
+          </div>
+        </article>
+
+        <article class="tense-card">
+          <h3>4. 现在完成进行时 · Present Perfect Continuous</h3>
+          <p class="subtitle">一直持续到现在，强调过程或时长</p>
+          <div class="mapping"><strong>对应关系：</strong>中文像“已经学了六年了”“一直在下雨”“最近老是在忙”，重点是从过去延续到现在的过程感。</div>
+          <div class="columns">
+            <div class="lang-col">
+              <h4>中文表达</h4>
+              <div class="block"><span class="label">语法点</span><p>现在完成进行时</p></div>
+              <div class="block"><span class="label">中文关键词</span><p>一直在、已经……了很久、最近反复、持续到现在</p></div>
+              <div class="block"><span class="label">中文怎么说</span><p>不是只说结果，而是把“持续多久、一直在做”也带出来。</p></div>
+              <div class="example-list">
+                <div class="example">我已经学英语六年了。</div>
+                <div class="example">整个下午一直在下雨，而且路现在还湿着。</div>
+              </div>
+            </div>
+            <div class="lang-col">
+              <h4>English expression</h4>
+              <div class="block"><span class="label">Structure</span><p>Subject + have / has been + doing</p></div>
+              <div class="example-list">
+                <div class="example">I have been learning English for six years.</div>
+                <div class="example">It has been raining all afternoon, and the streets are still wet.</div>
+              </div>
+            </div>
+          </div>
+          <div class="speaking">
+            <p><strong>对比提醒：</strong> I have learned English for six years. 语感更偏“这个结果成立”；I have been learning English for six years. 更强调“这六年一直在学”。</p>
+            <p><strong>口语句型：</strong> I've been working on..., I've been trying to..., It's been raining...</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="card era-block past" id="past">
+      <div class="era-head">
+        <div>
+          <span class="era-tag">过去时 · Past</span>
+          <h2>过去：说那次、当时、之前已经，以及过去一段时间里的持续</h2>
         </div>
-        <div class="compare-item">
-          <p class="en">I won't do that. <span class="arrow">→</span> I wouldn't do that.</p>
-          <p class="zh">我不会那样做。→ 我不会那样做 / 我当时不肯那样做。</p>
+        <p class="era-note">中文里一旦自然冒出“昨天、刚才、那时候、以前、当时”，英文通常就要把整个时间视角往后退。</p>
+      </div>
+      <div class="tense-grid">
+        <article class="tense-card">
+          <h3>5. 一般过去时 · Simple Past</h3>
+          <p class="subtitle">发生在过去的动作、状态、判断</p>
+          <div class="mapping"><strong>对应关系：</strong>中文说“昨天、刚才、那次、以前、当时不知道”时，英文常直接退到一般过去时；不仅动词变过去，整句的视角也变了。</div>
+          <div class="columns">
+            <div class="lang-col">
+              <h4>中文表达</h4>
+              <div class="block"><span class="label">语法点</span><p>一般过去时</p></div>
+              <div class="block"><span class="label">中文关键词</span><p>昨天、刚才、去年、以前、那次、当时</p></div>
+              <div class="block"><span class="label">中文怎么说</span><p>说已经结束的过去事件，或把现在的判断退回到“当时是这样”。</p></div>
+              <div class="example-list">
+                <div class="example">昨晚我在一家小咖啡馆见到了我最好的朋友。</div>
+                <div class="example">他们在截止日期之前完成了项目。</div>
+                <div class="example">我之前不知道。</div>
+                <div class="example">我当时不懂。</div>
+              </div>
+            </div>
+            <div class="lang-col">
+              <h4>English expression</h4>
+              <div class="block"><span class="label">Structure</span><p>Subject + past form</p></div>
+              <div class="example-list">
+                <div class="example">I met my best friend at a small café last night.</div>
+                <div class="example">They finished the project before the deadline.</div>
+                <div class="example">I didn't know.</div>
+                <div class="example">I didn't understand.</div>
+              </div>
+            </div>
+          </div>
+          <div class="speaking contrast">
+            <p><strong>高频变形：</strong> do → did；don't / doesn't → didn't；go → went；come → came；see → saw；have → had</p>
+            <p><strong>意思变化：</strong> I don't know. = 我不知道。 / I didn't know. = 我之前不知道、我当时不知道、我没料到。</p>
+            <p><strong>更多配对：</strong> I don't like it. → I didn't like it. / I understand. → I understood.</p>
+          </div>
+        </article>
+
+        <article class="tense-card">
+          <h3>6. 过去进行时 · Past Continuous</h3>
+          <p class="subtitle">过去某个时刻正在发生的画面</p>
+          <div class="mapping"><strong>对应关系：</strong>中文里“当时正在”“那会儿一直在”常常是在过去场景里截一帧画面，英文就会用过去进行时。</div>
+          <div class="columns">
+            <div class="lang-col">
+              <h4>中文表达</h4>
+              <div class="block"><span class="label">语法点</span><p>过去进行时</p></div>
+              <div class="block"><span class="label">中文关键词</span><p>当时正在、那时、就在……的时候</p></div>
+              <div class="block"><span class="label">中文怎么说</span><p>强调某个过去时刻，动作正在进行，经常和另一个短动作一起出现。</p></div>
+              <div class="example-list">
+                <div class="example">灯突然熄灭时，我正躺在床上看书。</div>
+                <div class="example">昨天下午五点他们正在打篮球。</div>
+              </div>
+            </div>
+            <div class="lang-col">
+              <h4>English expression</h4>
+              <div class="block"><span class="label">Structure</span><p>Subject + was / were + doing</p></div>
+              <div class="example-list">
+                <div class="example">I was reading in bed when the lights suddenly went out.</div>
+                <div class="example">They were playing basketball at five o'clock yesterday afternoon.</div>
+              </div>
+            </div>
+          </div>
+          <div class="speaking">
+            <p><strong>对比提醒：</strong> I read when he called. 偏“发生了”；I was reading when he called. 偏“他打来时，我正处在阅读过程中”。</p>
+            <p><strong>口语句型：</strong> I was just..., We were talking when..., She was working at that time.</p>
+          </div>
+        </article>
+
+        <article class="tense-card">
+          <h3>7. 过去完成时 · Past Perfect</h3>
+          <p class="subtitle">过去某时之前已经完成，属于“过去的过去”</p>
+          <div class="mapping"><strong>对应关系：</strong>中文里有“等到……的时候，已经……了”“在那之前从没……”这种前后顺序很强的表达时，过去完成时最清楚。</div>
+          <div class="columns">
+            <div class="lang-col">
+              <h4>中文表达</h4>
+              <div class="block"><span class="label">语法点</span><p>过去完成时</p></div>
+              <div class="block"><span class="label">中文关键词</span><p>在……之前已经、等到……时已经、过去的过去</p></div>
+              <div class="block"><span class="label">中文怎么说</span><p>先发生的那个过去动作，用它来给后面的过去事件提供背景。</p></div>
+              <div class="example-list">
+                <div class="example">等我们到的时候，电影已经开始了。</div>
+                <div class="example">在搬到加拿大之前，他从未见过雪。</div>
+              </div>
+            </div>
+            <div class="lang-col">
+              <h4>English expression</h4>
+              <div class="block"><span class="label">Structure</span><p>Subject + had + past participle</p></div>
+              <div class="example-list">
+                <div class="example">By the time we arrived, the movie had already started.</div>
+                <div class="example">He had never seen snow before he moved to Canada.</div>
+              </div>
+            </div>
+          </div>
+          <div class="speaking">
+            <p><strong>对比提醒：</strong> The movie started. = 电影开始了。 / The movie had started before we arrived. = 我们到之前，电影就已经开始了。</p>
+          </div>
+        </article>
+
+        <article class="tense-card">
+          <h3>8. 过去完成进行时 · Past Perfect Continuous</h3>
+          <p class="subtitle">过去某时之前一直在进行，强调时长和过程</p>
+          <div class="mapping"><strong>对应关系：</strong>中文像“之前已经等了一个多小时”“那之前整夜都在修”，重点是过去某节点前的持续过程。</div>
+          <div class="columns">
+            <div class="lang-col">
+              <h4>中文表达</h4>
+              <div class="block"><span class="label">语法点</span><p>过去完成进行时</p></div>
+              <div class="block"><span class="label">中文关键词</span><p>之前一直在、那之前已经……很久、持续到过去某点</p></div>
+              <div class="block"><span class="label">中文怎么说</span><p>不只说先发生了，还要把“持续了多久、一直在做”带出来。</p></div>
+              <div class="example-list">
+                <div class="example">医生终于到来之前，她已经等了一个多小时。</div>
+                <div class="example">他们整夜都在修那台机器，所以累坏了。</div>
+              </div>
+            </div>
+            <div class="lang-col">
+              <h4>English expression</h4>
+              <div class="block"><span class="label">Structure</span><p>Subject + had been + doing</p></div>
+              <div class="example-list">
+                <div class="example">She had been waiting for over an hour before the doctor finally arrived.</div>
+                <div class="example">They had been working on the machine all night, so they were exhausted.</div>
+              </div>
+            </div>
+          </div>
+          <div class="speaking">
+            <p><strong>对比提醒：</strong> had done 更像“已经做完”；had been doing 更像“之前一直在做，所以后面出现了某种结果”。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="card era-block future" id="future">
+      <div class="era-head">
+        <div>
+          <span class="era-tag">将来时 · Future</span>
+          <h2>将来：说会发生、到时正在、到时已完成、到时已持续多久</h2>
         </div>
-        <div class="compare-item">
-          <p class="en">I don't like it. <span class="arrow">→</span> I didn't like it.</p>
-          <p class="zh">我不喜欢它。→ 我当时不喜欢 / 我以前不喜欢它。</p>
+        <p class="era-note">中文里常出现“明天、以后、到时候、到……为止”，英文将来时体系就在处理这种前瞻视角。</p>
+      </div>
+      <div class="tense-grid">
+        <article class="tense-card">
+          <h3>9. 一般将来时 · Simple Future</h3>
+          <p class="subtitle">将会发生、临时决定、预测、承诺</p>
+          <div class="mapping"><strong>对应关系：</strong>中文里的“会、将会、等下我来、以后会……”常对应 will 结构；重点是把视角放到未来。</div>
+          <div class="columns">
+            <div class="lang-col">
+              <h4>中文表达</h4>
+              <div class="block"><span class="label">语法点</span><p>一般将来时</p></div>
+              <div class="block"><span class="label">中文关键词</span><p>明天、以后、将会、会、等下、打算说出口</p></div>
+              <div class="block"><span class="label">中文怎么说</span><p>表达未来动作、承诺、预测。有时中文只说“会”，英文就需要 will。</p></div>
+              <div class="example-list">
+                <div class="example">我一到车站就会给你打电话。</div>
+                <div class="example">下周天气可能会变得更冷。</div>
+              </div>
+            </div>
+            <div class="lang-col">
+              <h4>English expression</h4>
+              <div class="block"><span class="label">Structure</span><p>Subject + will + base verb</p></div>
+              <div class="example-list">
+                <div class="example">I will call you as soon as I arrive at the station.</div>
+                <div class="example">The weather will probably get colder next week.</div>
+              </div>
+            </div>
+          </div>
+          <div class="speaking contrast">
+            <p><strong>高频变形：</strong> will → would；won't → wouldn't</p>
+            <p><strong>意思提醒：</strong> I won't do that. = 我不会那样做。 / I wouldn't do that. = 我不会那样做；也可能是“我当时不会那样做 / 我不肯那样做”。</p>
+            <p><strong>口语句型：</strong> I'll..., We'll see..., It will probably...</p>
+          </div>
+        </article>
+
+        <article class="tense-card">
+          <h3>10. 将来进行时 · Future Continuous</h3>
+          <p class="subtitle">到未来某个时刻，动作将正在进行</p>
+          <div class="mapping"><strong>对应关系：</strong>中文里的“明天这个时候我正在……”“今晚她那时会在忙”是在未来时间线上截一帧动态画面。</div>
+          <div class="columns">
+            <div class="lang-col">
+              <h4>中文表达</h4>
+              <div class="block"><span class="label">语法点</span><p>将来进行时</p></div>
+              <div class="block"><span class="label">中文关键词</span><p>将正在、到时候正在、未来某时会在忙</p></div>
+              <div class="block"><span class="label">中文怎么说</span><p>不是单纯说将来会发生，而是把焦点放在未来某一时刻正在展开的动作上。</p></div>
+              <div class="example-list">
+                <div class="example">明天这个时候，我将正在太平洋上空飞行。</div>
+                <div class="example">她今晚将会工作到很晚，所以不用等她吃晚饭。</div>
+              </div>
+            </div>
+            <div class="lang-col">
+              <h4>English expression</h4>
+              <div class="block"><span class="label">Structure</span><p>Subject + will be + doing</p></div>
+              <div class="example-list">
+                <div class="example">This time tomorrow, I will be flying over the Pacific Ocean.</div>
+                <div class="example">She will be working late tonight, so do not wait for dinner.</div>
+              </div>
+            </div>
+          </div>
+          <div class="speaking">
+            <p><strong>对比提醒：</strong> I will fly tomorrow. = 我明天会飞。 / I will be flying this time tomorrow. = 明天这个时候我会正在飞。</p>
+          </div>
+        </article>
+
+        <article class="tense-card">
+          <h3>11. 将来完成时 · Future Perfect</h3>
+          <p class="subtitle">到未来某个截止点，已经完成</p>
+          <div class="mapping"><strong>对应关系：</strong>中文常见“到……为止就完成了”“到那时候她应该已经走了”，重点是未来截止点之前的结果。</div>
+          <div class="columns">
+            <div class="lang-col">
+              <h4>中文表达</h4>
+              <div class="block"><span class="label">语法点</span><p>将来完成时</p></div>
+              <div class="block"><span class="label">中文关键词</span><p>到……为止将已经、那时候就完成了、届时已经</p></div>
+              <div class="block"><span class="label">中文怎么说</span><p>常跟“by + 将来时间”对应，强调未来某时点前任务已经收尾。</p></div>
+              <div class="example-list">
+                <div class="example">到下周五为止，我们将已经完成第一轮测试。</div>
+                <div class="example">天亮前她就将已经出发去机场了。</div>
+              </div>
+            </div>
+            <div class="lang-col">
+              <h4>English expression</h4>
+              <div class="block"><span class="label">Structure</span><p>Subject + will have + past participle</p></div>
+              <div class="example-list">
+                <div class="example">By next Friday, we will have completed the first round of testing.</div>
+                <div class="example">She will have left for the airport before sunrise.</div>
+              </div>
+            </div>
+          </div>
+          <div class="speaking">
+            <p><strong>对比提醒：</strong> will do 看“将会做”；will have done 看“到那时已经做完”。</p>
+          </div>
+        </article>
+
+        <article class="tense-card">
+          <h3>12. 将来完成进行时 · Future Perfect Continuous</h3>
+          <p class="subtitle">到未来某个时点，已经持续了多久</p>
+          <div class="mapping"><strong>对应关系：</strong>中文像“到今年年底就满十年了”“到下个月他们就已经在国外住五年了”，重点是未来回头看一段持续过程。</div>
+          <div class="columns">
+            <div class="lang-col">
+              <h4>中文表达</h4>
+              <div class="block"><span class="label">语法点</span><p>将来完成进行时</p></div>
+              <div class="block"><span class="label">中文关键词</span><p>到那时已经持续多久、就满……年了、届时一直在</p></div>
+              <div class="block"><span class="label">中文怎么说</span><p>把“截止点 + 持续时长”放在一起，兼有完成感和过程感。</p></div>
+              <div class="example-list">
+                <div class="example">到今年年底，我在这里教书就满十年了。</div>
+                <div class="example">到下个月，他们在国外生活就满五年了。</div>
+              </div>
+            </div>
+            <div class="lang-col">
+              <h4>English expression</h4>
+              <div class="block"><span class="label">Structure</span><p>Subject + will have been + doing</p></div>
+              <div class="example-list">
+                <div class="example">By the end of this year, I will have been teaching here for a decade.</div>
+                <div class="example">Next month, they will have been living abroad for five years.</div>
+              </div>
+            </div>
+          </div>
+          <div class="speaking">
+            <p><strong>对比提醒：</strong> will have done 强调“完成了什么”；will have been doing 强调“已经持续了多久”。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="card summary">
+      <h2>最后只记这一层：先抓中文时间感，再选英文时态</h2>
+      <p>如果你总在想“这个动词该不该变形”，很容易乱。更稳的办法是先问：中文想表达的是常态、正在、已经完成，还是已经持续？然后再映射到英文。</p>
+      <div class="summary-grid">
+        <div class="summary-item">
+          <p><strong>现在时区</strong></p>
+          <p>经常 / 现在 / 已经 / 一直</p>
         </div>
-        <div class="compare-item">
-          <p class="en">I understand. <span class="arrow">→</span> I understood.</p>
-          <p class="zh">我懂。→ 我明白了 / 我当时懂了。</p>
+        <div class="summary-item">
+          <p><strong>过去时区</strong></p>
+          <p>昨天 / 当时 / 之前已经 / 之前一直</p>
+        </div>
+        <div class="summary-item">
+          <p><strong>将来时区</strong></p>
+          <p>会 / 到时正在 / 到时已完成 / 到时已持续多久</p>
+        </div>
+        <div class="summary-item">
+          <p><strong>一眼口诀</strong></p>
+          <p>先定现在/过去/将来，再定一般/进行/完成/完成进行。</p>
         </div>
       </div>
     </section>
 
-    <section class="card">
-      <h2 class="section-title"><span class="accent">高频口语小句子</span></h2>
-      <p class="section-lead">下面这些是一开口就能用的现在 / 过去配对。练的时候建议整组记，不要只背单个单词。</p>
-      <div class="practical-grid">
-        <div class="mini-card">
-          <h3>知道 / 不知道</h3>
-          <div class="examples">
-            <div class="example"><p class="en">I don't know.</p><p class="zh">我不知道。</p></div>
-            <div class="example"><p class="en">I didn't know.</p><p class="zh">我之前不知道 / 我当时不知道。</p></div>
-          </div>
-        </div>
-        <div class="mini-card">
-          <h3>能 / 不能做到</h3>
-          <div class="examples">
-            <div class="example"><p class="en">I can't do it.</p><p class="zh">我做不到。</p></div>
-            <div class="example"><p class="en">I couldn't do it.</p><p class="zh">我没做到 / 我当时做不到。</p></div>
-          </div>
-        </div>
-        <div class="mini-card">
-          <h3>懂 / 没懂</h3>
-          <div class="examples">
-            <div class="example"><p class="en">I don't understand.</p><p class="zh">我不懂。</p></div>
-            <div class="example"><p class="en">I didn't understand.</p><p class="zh">我刚才没懂 / 我当时没听明白。</p></div>
-          </div>
-        </div>
-        <div class="mini-card">
-          <h3>记得 / 不记得</h3>
-          <div class="examples">
-            <div class="example"><p class="en">I don't remember.</p><p class="zh">我不记得。</p></div>
-            <div class="example"><p class="en">I didn't remember.</p><p class="zh">我当时没想起来。</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="card">
-      <h2 class="section-title"><span class="accent">规律总结</span></h2>
-      <div class="compare-list">
-        <div class="compare-item"><p><strong>现在时：</strong>说现在、习惯、常态。</p></div>
-        <div class="compare-item"><p><strong>过去时：</strong>说刚才、那次、以前。</p></div>
-        <div class="compare-item"><p><strong>快速提示：</strong>如果中文里自然想加“当时、刚刚、那时候、以前”，英文通常也该往过去时走。</p></div>
-      </div>
-    </section>
-
-    <section class="card mnemonics">
-      <h2><span class="accent">6 个核心口诀</span></h2>
-      <ol>
-        <li><strong class="accent">一般看时间点，进行看正在。</strong> 见到“经常、昨天、明天”先想一般时；见到“正在、当时正在”优先想进行时。</li>
-        <li><strong class="accent">完成看“已经”，完成进行看“已经一直”。</strong> 完成强调结果，完成进行强调过程和持续。</li>
-        <li><strong class="accent">现在完成连现在，过去完成退两格。</strong> 现在完成和当下有关；过去完成是“过去的过去”。</li>
-        <li><strong class="accent">将来完成看截止点。</strong> 句子里常有 “by + 将来时间”，表示到那时已经完成。</li>
-        <li><strong class="accent">be doing 是进行，have done 是完成。</strong> 抓住骨架，时态就不会乱。</li>
-        <li><strong class="accent">先定时间，再定状态。</strong> 先判断现在/过去/将来，再判断一般/进行/完成/完成进行。</li>
-      </ol>
-    </section>
-
-    <footer>英语时态速查表 · 适配手机与桌面 · 单文件静态页面</footer>
+    <footer>英语时态速查表 · 中文左 / English right · 适配手机与桌面</footer>
   </div>
 </body>
 </html>
