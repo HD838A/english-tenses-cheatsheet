@@ -116,6 +116,62 @@
       color: var(--muted);
       font-size: 0.96rem;
     }
+    .section-title {
+      margin: 0 0 8px;
+      font-size: 1.3rem;
+    }
+    .section-lead {
+      margin: 0 0 16px;
+      color: var(--muted);
+    }
+    .practical-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+    }
+    .mini-card {
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(124,58,237,0.1);
+      border-radius: 18px;
+      padding: 14px;
+    }
+    .mini-card h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+    }
+    .compare-list {
+      display: grid;
+      gap: 10px;
+    }
+    .compare-item {
+      background: rgba(124,58,237,0.05);
+      border-radius: 16px;
+      padding: 12px 14px;
+    }
+    .compare-item p {
+      margin: 0;
+    }
+    .compare-item p + p {
+      margin-top: 6px;
+    }
+    .arrow {
+      color: var(--accent-2);
+      font-weight: 800;
+      margin: 0 6px;
+    }
+    .tip-box {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(14,165,233,0.09), rgba(124,58,237,0.08));
+      color: var(--text);
+    }
+    .tip-box p {
+      margin: 0;
+    }
+    .tip-box p + p {
+      margin-top: 8px;
+    }
     .mnemonics {
       margin-top: 24px;
       background: linear-gradient(135deg, rgba(14,165,233,0.10), rgba(124,58,237,0.10));
@@ -272,6 +328,109 @@
         </div>
       </section>
     </main>
+
+    <section class="card">
+      <h2 class="section-title"><span class="accent">现在 → 过去：常用变形速记</span></h2>
+      <p class="section-lead">很多口语句子不是单纯把动词变过去式，而是整句的“时间感”一起往后退一格。先抓住这些最高频变化，会非常实用。</p>
+      <div class="practical-grid">
+        <div class="mini-card">
+          <h3>助动词 / 情态动词</h3>
+          <div class="compare-list">
+            <div class="compare-item"><p><strong>don't</strong> <span class="arrow">→</span> <strong>didn't</strong></p><p class="zh">不 / 没有</p></div>
+            <div class="compare-item"><p><strong>doesn't</strong> <span class="arrow">→</span> <strong>didn't</strong></p><p class="zh">不 / 没有</p></div>
+            <div class="compare-item"><p><strong>can</strong> <span class="arrow">→</span> <strong>could</strong></p><p class="zh">能 / 当时能</p></div>
+            <div class="compare-item"><p><strong>can't</strong> <span class="arrow">→</span> <strong>couldn't</strong></p><p class="zh">不能 / 没能 / 没做到</p></div>
+            <div class="compare-item"><p><strong>will</strong> <span class="arrow">→</span> <strong>would</strong></p><p class="zh">会 / 本来会</p></div>
+            <div class="compare-item"><p><strong>won't</strong> <span class="arrow">→</span> <strong>wouldn't</strong></p><p class="zh">不会 / 不肯</p></div>
+          </div>
+        </div>
+        <div class="mini-card">
+          <h3>最常见实义动词</h3>
+          <div class="compare-list">
+            <div class="compare-item"><p><strong>do</strong> <span class="arrow">→</span> <strong>did</strong></p><p class="zh">做 / 做了</p></div>
+            <div class="compare-item"><p><strong>go</strong> <span class="arrow">→</span> <strong>went</strong></p><p class="zh">去 / 去了</p></div>
+            <div class="compare-item"><p><strong>come</strong> <span class="arrow">→</span> <strong>came</strong></p><p class="zh">来 / 来了</p></div>
+            <div class="compare-item"><p><strong>see</strong> <span class="arrow">→</span> <strong>saw</strong></p><p class="zh">看见 / 看到了</p></div>
+            <div class="compare-item"><p><strong>say</strong> <span class="arrow">→</span> <strong>said</strong></p><p class="zh">说 / 说了</p></div>
+            <div class="compare-item"><p><strong>have</strong> <span class="arrow">→</span> <strong>had</strong></p><p class="zh">有 / 有过 / 当时有</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="tip-box">
+        <p><strong class="accent">一眼判断：</strong>如果你在说“刚才、那次、以前、当时”，往往就该考虑过去形式，而不是现在形式。</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 class="section-title"><span class="accent">意思变化对照</span></h2>
+      <p class="section-lead">像 <strong>I think → I thought</strong> 一样，很多句子一变成过去时，中文意思也会自然变成“当时 / 之前 / 没料到”。</p>
+      <div class="compare-list">
+        <div class="compare-item">
+          <p class="en">I don't know. <span class="arrow">→</span> I didn't know.</p>
+          <p class="zh">我不知道。→ 我之前不知道 / 我当时不知道 / 我没料到。</p>
+        </div>
+        <div class="compare-item">
+          <p class="en">I can't do it. <span class="arrow">→</span> I couldn't do it.</p>
+          <p class="zh">我做不到。→ 我没做到 / 我当时做不到。</p>
+        </div>
+        <div class="compare-item">
+          <p class="en">I won't do that. <span class="arrow">→</span> I wouldn't do that.</p>
+          <p class="zh">我不会那样做。→ 我不会那样做 / 我当时不肯那样做。</p>
+        </div>
+        <div class="compare-item">
+          <p class="en">I don't like it. <span class="arrow">→</span> I didn't like it.</p>
+          <p class="zh">我不喜欢它。→ 我当时不喜欢 / 我以前不喜欢它。</p>
+        </div>
+        <div class="compare-item">
+          <p class="en">I understand. <span class="arrow">→</span> I understood.</p>
+          <p class="zh">我懂。→ 我明白了 / 我当时懂了。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 class="section-title"><span class="accent">高频口语小句子</span></h2>
+      <p class="section-lead">下面这些是一开口就能用的现在 / 过去配对。练的时候建议整组记，不要只背单个单词。</p>
+      <div class="practical-grid">
+        <div class="mini-card">
+          <h3>知道 / 不知道</h3>
+          <div class="examples">
+            <div class="example"><p class="en">I don't know.</p><p class="zh">我不知道。</p></div>
+            <div class="example"><p class="en">I didn't know.</p><p class="zh">我之前不知道 / 我当时不知道。</p></div>
+          </div>
+        </div>
+        <div class="mini-card">
+          <h3>能 / 不能做到</h3>
+          <div class="examples">
+            <div class="example"><p class="en">I can't do it.</p><p class="zh">我做不到。</p></div>
+            <div class="example"><p class="en">I couldn't do it.</p><p class="zh">我没做到 / 我当时做不到。</p></div>
+          </div>
+        </div>
+        <div class="mini-card">
+          <h3>懂 / 没懂</h3>
+          <div class="examples">
+            <div class="example"><p class="en">I don't understand.</p><p class="zh">我不懂。</p></div>
+            <div class="example"><p class="en">I didn't understand.</p><p class="zh">我刚才没懂 / 我当时没听明白。</p></div>
+          </div>
+        </div>
+        <div class="mini-card">
+          <h3>记得 / 不记得</h3>
+          <div class="examples">
+            <div class="example"><p class="en">I don't remember.</p><p class="zh">我不记得。</p></div>
+            <div class="example"><p class="en">I didn't remember.</p><p class="zh">我当时没想起来。</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 class="section-title"><span class="accent">规律总结</span></h2>
+      <div class="compare-list">
+        <div class="compare-item"><p><strong>现在时：</strong>说现在、习惯、常态。</p></div>
+        <div class="compare-item"><p><strong>过去时：</strong>说刚才、那次、以前。</p></div>
+        <div class="compare-item"><p><strong>快速提示：</strong>如果中文里自然想加“当时、刚刚、那时候、以前”，英文通常也该往过去时走。</p></div>
+      </div>
+    </section>
 
     <section class="card mnemonics">
       <h2><span class="accent">6 个核心口诀</span></h2>
